@@ -1,0 +1,12 @@
+<layout id="MainLayout">
+    <label text="Arm speed:" x="10%" y="50%" font="Gfx.FONT_MEDIUM" color="Gfx.COLOR_DK_GRAY" />
+    <label id="arm_speed_live" text="number.." x="10%" y="60%" font="Gfx.FONT_LARGE" color="Gfx.COLOR_WHITE" />
+
+</layout>
+<!--<text-area id="BlockOfText" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." x="10%" y="10%" width="80%" height="80%">
+   <label x="center" y="50%" text="@Strings.prompt" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <fonts>
+        <font>Gfx.FONT_MEDIUM</font>
+        <font>Gfx.FONT_XTINY</font>
+    </fonts>
+</text-area> -->
