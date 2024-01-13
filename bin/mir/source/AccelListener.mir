@@ -1,0 +1,123 @@
+[ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 2; ]
+import Toybox.Sensor;
+[ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 4; ]
+class AccelListener{
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 4; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 6; @position = 16; ]
+    private
+    var _accelData = null;
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 8; ]
+    public
+    function onStart() as Void {
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_8_38_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc" 9 8 ]
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :enableAccel;
+        invoke %tmp.1 %tmp.2();
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_8_38_stop:
+    }
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 13; ]
+    private
+    function enableAccel() as Void {
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_13_43_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc" 14 8 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_13_43_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_13_43_stop" ]
+        %maxSampleRate.1 = local;
+        %tmp.1 = getm $.Toybox.Sensor;
+        %tmp.2 = getv function %tmp.1 :getMaxSampleRate;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %maxSampleRate.1 %tmp.3;
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc" 17 8 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_13_43_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_13_43_stop" ]
+        %options.2 = local;
+        %tmp.4 = newd 3;
+        %tmp.6 = const :period;
+        %tmp.7 = 1;
+        %tmp.8 = dup %tmp.4;
+        %tmp.9 = aputv %tmp.8 %tmp.6 %tmp.7;
+        %tmp.11 = const :sampleRate;
+        %tmp.13 = lgetv %maxSampleRate.1;
+        %tmp.14 = dup %tmp.9;
+        %tmp.15 = aputv %tmp.14 %tmp.11 %tmp.13;
+        %tmp.17 = const :enableAccelerometer;
+        %tmp.18 = true;
+        %tmp.19 = dup %tmp.15;
+        %tmp.20 = aputv %tmp.19 %tmp.17 %tmp.18;
+        lputv %options.2 %tmp.20;
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc" 21 8 ]
+        try @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_beginTry @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_endTry @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_catch @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_finally;
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_beginTry:
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_12_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc" 22 12 ]
+        %tmp.21 = getm $.Toybox.Sensor;
+        %tmp.22 = getv function %tmp.21 :registerSensorDataListener;
+        %tmp.23 = self;
+        %tmp.24 = getv function %tmp.23 :method;
+        %tmp.26 = const :accelHistoryCallback;
+        %tmp.27 = invoke %tmp.23 %tmp.24(%tmp.26);
+        %tmp.29 = lgetv %options.2;
+        invoke %tmp.21 %tmp.22(%tmp.27, %tmp.29);
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_12_stop:
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_endTry:
+        jsr @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_finally;
+        goto @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_end;
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_catch:
+        %tmp.30 = exception;
+        push %tmp.30;
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc" 24 8 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_catch" "C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_24_8_end" ]
+        %e.3 = local;
+        %tmp.31 = dup %tmp.30;
+        lputv %e.3 %tmp.31;
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_24_17_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc" 25 12 ]
+        %tmp.33 = getv ? :System;
+        %tmp.34 = getv function %tmp.33 :println;
+        %tmp.35 = lgetv %e.3;
+        %tmp.36 = getv function %tmp.35 :getErrorMessage;
+        %tmp.37 = invoke %tmp.35 %tmp.36();
+        invoke %tmp.33 %tmp.34(%tmp.37);
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_24_17_stop:
+        jsr @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_finally;
+        pop;
+        goto @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_end;
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_24_8_end:
+        try @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_catch @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_24_8_end @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_24_8_end @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_finally;
+        jsr @C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_finally;
+        throw %tmp.30;
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_finally:
+        jsrret;
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_21_8_end:
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_13_43_stop:
+    }
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 30; ]
+    public
+    function accelHistoryCallback(sensorData as SensorData) as Void {
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_30_75_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc" 31 8 ]
+        %tmp.1 = lgetv %sensorData;
+        %tmp.2 = getv %tmp.1 :accelerometerData;
+        putv self :_accelData %tmp.2;
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_30_75_stop:
+    }
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 34; ]
+    public
+    function getAccelData() as Sensor.accelerometerData {
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_34_63_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc" 35 8 ]
+        %tmp.2 = getv ? :_accelData;
+        ret %tmp.2;
+C_Users_valde_Desktop_garmin_armspeed_app_source_AccelListener_mc_34_63_stop:
+    }
+}
+[ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\AccelListener.mc"; @line = 1; ]
+<init> {
+}

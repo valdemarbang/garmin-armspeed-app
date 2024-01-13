@@ -6,10 +6,6 @@ class ArmspeedtrackerApp extends Application.AppBase {
 
     function initialize() {
         AppBase.initialize();
-
-        // Enable sensors
-        Sensor.setEnabledSensors( [Sensor.gyroscopeData] );
-        Sensor.enableSensorEvents( method( :onSensor ) );
     }
 
     // onStart() is called on application start up
@@ -23,10 +19,6 @@ class ArmspeedtrackerApp extends Application.AppBase {
     // Return the initial view of your application here
     function getInitialView() as Array<Views or InputDelegates>? {
         return [ new ArmspeedtrackerView(), new ArmspeedtrackerDelegate() ] as Array<Views or InputDelegates>;
-    }
-
-    function onSensor(sensorInfo as Sensor.Info) as Void {
-        System.println( "Heart Rate: " + sensorInfo.heartRate );
     }
 
 }
