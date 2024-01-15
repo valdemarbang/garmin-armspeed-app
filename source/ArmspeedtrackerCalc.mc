@@ -9,6 +9,8 @@ class ArmspeedtrackerCalc {
     private var _accelY = null;
     private var _accelZ = null;
     private var _filter = null;
+    private var _calibrateGyro = null;
+    private var _calibrateAccel = null;
 
     //! Constructor
     public function initialize() {
@@ -16,11 +18,20 @@ class ArmspeedtrackerCalc {
         _accelListener = new $.AccelListener();
     }
 
+    // Get gyro values to calibrate when the arm is still, clockface pointing up.
+    // In a perfect world they would return x,y,z = 0
+    public function calibrateData() {
+        _calibrateGyro = _gyroListener.getGyroData();
+        _calibrateAccel = _accelListener.getAccelData();
+    }
+
     private function _filterGravityAccel(gyroData, accelData) {
         var gain = 0.001f;
         var coeff1 = 0.0278f;
         var coeff2 = 0.9444f;
         var coeff3 = 0.0278f;
+
+
 
         var options = {
             :coefficients => [coeff1, coeff2, coeff3] as Array<Float>,

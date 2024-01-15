@@ -43,7 +43,7 @@ module Rez {
 C_Users_valde_Desktop_garmin_armspeed_app_bin_gen_006_B3704_00_source_Rez_mcgen_19_74_start:
 [ "C:\Users\valde\Desktop\garmin-armspeed-app\bin\gen\006-B3704-00\source\Rez.mcgen" 20 12 ]
             [ "C_Users_valde_Desktop_garmin_armspeed_app_bin_gen_006_B3704_00_source_Rez_mcgen_19_74_start" "C_Users_valde_Desktop_garmin_armspeed_app_bin_gen_006_B3704_00_source_Rez_mcgen_19_74_stop" ]
-            %rez_cmp_local_text_1812445377.1 = local;
+            %rez_cmp_local_text_1920779017.1 = local;
             %tmp.3 = getm $.Toybox.WatchUi;
             %tmp.4 = getv function ? %tmp.3 :Text;
             %tmp.5 = newd 5;
@@ -78,7 +78,7 @@ C_Users_valde_Desktop_garmin_armspeed_app_bin_gen_006_B3704_00_source_Rez_mcgen_
             %tmp.39 = dup %tmp.34;
             %tmp.40 = aputv %tmp.39 %tmp.36 %tmp.38;
             %tmp.1 = newc %tmp.4 (%tmp.40);
-            lputv %rez_cmp_local_text_1812445377.1 %tmp.1;
+            lputv %rez_cmp_local_text_1920779017.1 %tmp.1;
 [ "C:\Users\valde\Desktop\garmin-armspeed-app\bin\gen\006-B3704-00\source\Rez.mcgen" 22 12 ]
             [ "C_Users_valde_Desktop_garmin_armspeed_app_bin_gen_006_B3704_00_source_Rez_mcgen_19_74_start" "C_Users_valde_Desktop_garmin_armspeed_app_bin_gen_006_B3704_00_source_Rez_mcgen_19_74_stop" ]
             %rez_cmp_local_text_arm_speed_live.2 = local;
@@ -123,7 +123,7 @@ C_Users_valde_Desktop_garmin_armspeed_app_bin_gen_006_B3704_00_source_Rez_mcgen_
             lputv %rez_cmp_local_text_arm_speed_live.2 %tmp.41;
 [ "C:\Users\valde\Desktop\garmin-armspeed-app\bin\gen\006-B3704-00\source\Rez.mcgen" 24 12 ]
             %tmp.86 = newa Array<WatchUi.Drawable> 2;
-            %tmp.88 = lgetv %rez_cmp_local_text_1812445377.1;
+            %tmp.88 = lgetv %rez_cmp_local_text_1920779017.1;
             %tmp.89 = dup %tmp.86;
             %tmp.90 = aputv %tmp.89 0 %tmp.88;
             %tmp.92 = lgetv %rez_cmp_local_text_arm_speed_live.2;

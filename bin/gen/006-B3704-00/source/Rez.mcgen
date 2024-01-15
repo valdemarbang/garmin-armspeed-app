@@ -17,11 +17,11 @@ module Rez {
 
     module Layouts {
         function MainLayout(dc as Graphics.Dc) as Array<WatchUi.Drawable> {
-            var rez_cmp_local_text_1812445377 = new WatchUi.Text({:color=>Gfx.COLOR_DK_GRAY, :locX=>(360 * (10 / 100.0)), :locY=>(360 * (50 / 100.0)), :text=>"Arm speed:", :font=>Gfx.FONT_MEDIUM});
+            var rez_cmp_local_text_1920779017 = new WatchUi.Text({:color=>Gfx.COLOR_DK_GRAY, :locX=>(360 * (10 / 100.0)), :locY=>(360 * (50 / 100.0)), :text=>"Arm speed:", :font=>Gfx.FONT_MEDIUM});
 
             var rez_cmp_local_text_arm_speed_live = new WatchUi.Text({:identifier=>"arm_speed_live", :color=>Gfx.COLOR_WHITE, :locX=>(360 * (10 / 100.0)), :locY=>(360 * (60 / 100.0)), :text=>"number..", :font=>Gfx.FONT_LARGE});
 
-            return [rez_cmp_local_text_1812445377, rez_cmp_local_text_arm_speed_live] as Array<WatchUi.Drawable>;
+            return [rez_cmp_local_text_1920779017, rez_cmp_local_text_arm_speed_live] as Array<WatchUi.Drawable>;
         }
     } // Layouts
 

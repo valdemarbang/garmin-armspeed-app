@@ -29,49 +29,71 @@ class ArmspeedtrackerCalc{
     [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 11; @position = 16; ]
     private
     var _filter = null;
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 12; @position = 16; ]
+    private
+    var _calibrateGyro = null;
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 13; @position = 16; ]
+    private
+    var _calibrateAccel = null;
     //! Constructor
-    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 14; ]
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 16; ]
     public
     function initialize() as Void {
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_14_33_start:
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 15 8 ]
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_16_33_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 17 8 ]
         %tmp.4 = getm $;
         %tmp.5 = getv %tmp.4 :GyroListener;
         %tmp.1 = newc %tmp.5 ();
         putv self :_gyroListener %tmp.1;
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 16 8 ]
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 18 8 ]
         %tmp.9 = getm $;
         %tmp.10 = getv %tmp.9 :AccelListener;
         %tmp.6 = newc %tmp.10 ();
         putv self :_accelListener %tmp.6;
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_14_33_stop:
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_16_33_stop:
     }
-    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 19; ]
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 23; ]
+    public
+    function calibrateData() {
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_23_36_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 24 8 ]
+        %tmp.2 = getv ? :_gyroListener;
+        %tmp.3 = getv function %tmp.2 :getGyroData;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        putv self :_calibrateGyro %tmp.4;
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 25 8 ]
+        %tmp.6 = getv ? :_accelListener;
+        %tmp.7 = getv function %tmp.6 :getAccelData;
+        %tmp.8 = invoke %tmp.6 %tmp.7();
+        putv self :_calibrateAccel %tmp.8;
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_23_36_stop:
+    }
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 28; ]
     private
     function _filterGravityAccel(gyroData, accelData) {
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_start:
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 20 8 ]
-        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_stop" ]
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 29 8 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_stop" ]
         %gain.1 = local;
         %tmp.1 = 0.001f;
         lputv %gain.1 %tmp.1;
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 21 8 ]
-        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_stop" ]
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 30 8 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_stop" ]
         %coeff1.2 = local;
         %tmp.2 = 0.0278f;
         lputv %coeff1.2 %tmp.2;
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 22 8 ]
-        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_stop" ]
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 31 8 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_stop" ]
         %coeff2.3 = local;
         %tmp.3 = 0.9444f;
         lputv %coeff2.3 %tmp.3;
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 23 8 ]
-        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_stop" ]
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 32 8 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_stop" ]
         %coeff3.4 = local;
         %tmp.4 = 0.0278f;
         lputv %coeff3.4 %tmp.4;
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 25 8 ]
-        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_stop" ]
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 36 8 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_stop" ]
         %options.5 = local;
         %tmp.5 = newd 2;
         %tmp.7 = const :coefficients;
@@ -92,78 +114,78 @@ C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_st
         %tmp.27 = dup %tmp.22;
         %tmp.28 = aputv %tmp.27 %tmp.24 %tmp.26;
         lputv %options.5 %tmp.28;
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 30 8 ]
-        try @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_beginTry @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_endTry @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_catch @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_finally;
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_beginTry:
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_12_start:
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 31 12 ]
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 41 8 ]
+        try @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_beginTry @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_endTry @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_catch @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_finally;
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_beginTry:
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_12_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 42 12 ]
         %tmp.31 = getm $.Toybox.Math;
         %tmp.32 = getv function ? %tmp.31 :FirFilter;
         %tmp.34 = lgetv %options.5;
         %tmp.29 = newc %tmp.32 (%tmp.34);
         putv self :_filter %tmp.29;
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_12_stop:
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_endTry:
-        jsr @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_finally;
-        goto @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_end;
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_catch:
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_12_stop:
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_endTry:
+        jsr @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_finally;
+        goto @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_end;
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_catch:
         %tmp.35 = exception;
         push %tmp.35;
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 32 10 ]
-        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_catch" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_32_10_end" ]
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 43 10 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_catch" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_43_10_end" ]
         %e.6 = local;
         %tmp.36 = dup %tmp.35;
         lputv %e.6 %tmp.36;
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_32_20_start:
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 33 12 ]
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_43_20_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 44 12 ]
         %tmp.38 = getv ? :System;
         %tmp.39 = getv function %tmp.38 :println;
         %tmp.40 = lgetv %e.6;
         %tmp.41 = getv function %tmp.40 :getErrorMessage;
         %tmp.42 = invoke %tmp.40 %tmp.41();
         invoke %tmp.38 %tmp.39(%tmp.42);
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_32_20_stop:
-        jsr @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_finally;
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_43_20_stop:
+        jsr @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_finally;
         pop;
-        goto @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_end;
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_32_10_end:
-        try @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_catch @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_32_10_end @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_32_10_end @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_finally;
-        jsr @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_finally;
+        goto @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_end;
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_43_10_end:
+        try @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_catch @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_43_10_end @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_43_10_end @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_finally;
+        jsr @C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_finally;
         throw %tmp.35;
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_finally:
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_finally:
         jsrret;
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_30_8_end:
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 35 8 ]
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_41_8_end:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 46 8 ]
         %tmp.44 = getv ? :_filter;
         ret %tmp.44;
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_19_62_stop:
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_28_62_stop:
     }
-    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 38; ]
+    [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 49; ]
     private
     function _calculateArmSpeed() {
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_38_42_start:
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 39 8 ]
-        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_38_42_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_38_42_stop" ]
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_49_42_start:
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 50 8 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_49_42_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_49_42_stop" ]
         %gyroData.1 = local;
         %tmp.2 = getv ? :_gyroListener;
         %tmp.3 = getv function %tmp.2 :getGyroData;
         %tmp.4 = invoke %tmp.2 %tmp.3();
         lputv %gyroData.1 %tmp.4;
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 40 8 ]
-        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_38_42_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_38_42_stop" ]
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 51 8 ]
+        [ "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_49_42_start" "C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_49_42_stop" ]
         %accelData.2 = local;
         %tmp.6 = getv ? :_accelListener;
         %tmp.7 = getv function %tmp.6 :getAccelData;
         %tmp.8 = invoke %tmp.6 %tmp.7();
         lputv %accelData.2 %tmp.8;
-[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 42 8 ]
+[ "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc" 53 8 ]
         %tmp.9 = self;
         %tmp.10 = getv function %tmp.9 :_filterGravityAccel;
         %tmp.12 = lgetv %gyroData.1;
         %tmp.14 = lgetv %accelData.2;
         %tmp.15 = invoke %tmp.9 %tmp.10(%tmp.12, %tmp.14);
         putv self :_filter %tmp.15;
-C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_38_42_stop:
+C_Users_valde_Desktop_garmin_armspeed_app_source_ArmspeedtrackerCalc_mc_49_42_stop:
     }
 }
 [ @file = "C:\Users\valde\Desktop\garmin-armspeed-app\source\ArmspeedtrackerCalc.mc"; @line = 1; ]
